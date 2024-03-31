@@ -15,36 +15,11 @@ namespace PresentationModel
 {
     public class ReadyCountDownPageModel : IQueryAttributable
     {
-        private static readonly int _countDownCount = 3;
-
-        private readonly CompositeDisposable disposables = new CompositeDisposable();
-
-        public ReactiveProperty<int> Count { get; } = new ReactiveProperty<int>(_countDownCount);
-
-        public AsyncReactiveCommand StartCountDownCommand { get; } = new AsyncReactiveCommand();
-
-
-        private readonly Subject<Unit> countdownEndSubject = new Subject<Unit>();
-
-        public ReadyCountDownPageModel() 
-        {
-            async Task CountDownStart()
-            {
-                while(Count.Value > 0)
-                {
-                    await Task.Delay(1000);
-                    Count.Value--;
-                }
-
-                countdownEndSubject.OnNext(Unit.Default);
-            }
-
-            StartCountDownCommand.Subscribe(CountDownStart).AddTo(this.disposables);
-        }
+        public AsyncReactiveCommand MovePageCommand { get; } = new AsyncReactiveCommand();
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            countdownEndSubject.Subscribe(async _ => await Shell.Current.GoToAsync((string)query["NextPage"], false));
+            MovePageCommand.Subscribe(async _ => await Shell.Current.GoToAsync((string)query["NextPage"], false));
         }
     }
 }

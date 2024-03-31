@@ -3,17 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FlashMentalArithmetic.ReadyCountDownPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:viewModel="clr-namespace:PresentationModel;assembly=PresentationModel">
+             xmlns:viewModel="clr-namespace:PresentationModel;assembly=PresentationModel"
+             Loaded="ContentPage_Loaded">
     <ContentPage.BindingContext>
         <viewModel:ReadyCountDownPageModel />
     </ContentPage.BindingContext>
     <VerticalStackLayout>
-        <Label 
+        <!--<Label 
             Text="{Binding Count.Value, Mode=OneWay}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" />-->
+        <!--アニメーション関数が利用できそう？-->
+        <!--https://learn.microsoft.com/ja-jp/dotnet/maui/user-interface/animation/custom?view=net-maui-8.0-->
+        <Path Stroke="Red" StrokeThickness="4">
+            <Path.Data>
+                <PathGeometry>
+                    <!--ArcSegmentは円弧、始点はPathFigureのStartPoint,終点はArcSegmentのPoint,Sizeはx,y方向の半径-->
+                    <PathFigure StartPoint="85,110" >
+                        <ArcSegment x:Name="ArcSegment" Point="110,135" Size="25,25" IsLargeArc="false" SweepDirection="Clockwise" >
+
+                        </ArcSegment>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+            <Path.Triggers>
+                <!--<EventTrigger RoutedEvent="ArcSegment.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="30" To="300" Duration="00:00:3" 
+                                 Storyboard.TargetName="myRectangle" 
+                                 Storyboard.TargetProperty="Height">
+                                <DoubleAnimation.EasingFunction>
+
+                                    --><!-- You get the EasingMode property for free on your custom
+                                             easing function.--><!--
+                                    <CustomEase:CustomSeventhPowerEasingFunction EasingMode="EaseIn"/>
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>-->
+            </Path.Triggers>
+        </Path>
     </VerticalStackLayout>
-    <ContentPage.Behaviors>
+    <!--<ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior EventName="Loaded" Command="{Binding StartCountDownCommand}"/>
-    </ContentPage.Behaviors>
+    </ContentPage.Behaviors>-->
 </ContentPage>
