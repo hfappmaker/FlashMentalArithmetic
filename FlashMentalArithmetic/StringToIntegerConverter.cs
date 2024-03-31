@@ -11,12 +11,7 @@ namespace FlashMentalArithmetic
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if(value is int intValue)
-            {
-                return intValue;
-            }
-
-            return null;
+            return int.TryParse(value?.ToString(), out int result) ? result : 0;
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

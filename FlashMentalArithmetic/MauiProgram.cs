@@ -1,5 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
+using CommunityToolkit.Mvvm.Messaging;
+using PresentationModel;
+using CommunityToolkit.Maui.Alerts;
+using System.Reactive.Linq;
 
 namespace FlashMentalArithmetic
 {
@@ -16,6 +20,7 @@ namespace FlashMentalArithmetic
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+
             return builder.Build();
         }
     }

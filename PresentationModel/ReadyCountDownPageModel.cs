@@ -44,7 +44,7 @@ namespace PresentationModel
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            countdownEndSubject.Subscribe(async _ => await Shell.Current.GoToAsync(query["NextPage"] as string));
+            countdownEndSubject.Subscribe(async _ => await Shell.Current.GoToAsync((string)query["NextPage"], false));
         }
     }
 }

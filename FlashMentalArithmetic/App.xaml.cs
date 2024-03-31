@@ -12,10 +12,6 @@ namespace FlashMentalArithmetic
             InitializeComponent();
 
             MainPage = new AppShell();
-
-            var observable = WeakReferenceMessenger.Default.CreateObservable<AcceptAnswerMessage>();
-            observable.Where(message => message.Value).Subscribe(async _ => await Toast.Make("正解!").Show());
-            observable.Where(message => !message.Value).Subscribe(async _ => await Toast.Make("不正解!").Show());
         }
     }
 }

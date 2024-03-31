@@ -18,6 +18,7 @@
             Text="{Binding TotalValue.Value}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <!--EntryのKeyboardはAndroid,IOSで表示するキーボードの事。WindowsPCではあまり関係ない-->
         <Entry
         x:Name="AnswerEntry"
         Placeholder="答えを入力"

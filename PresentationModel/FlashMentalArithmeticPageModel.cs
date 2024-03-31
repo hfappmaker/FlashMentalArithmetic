@@ -6,6 +6,7 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Threading.Tasks;
 
 namespace PresentationModel
 {
@@ -34,7 +35,7 @@ namespace PresentationModel
                 .ToReadOnlyReactiveProperty()
                 .AddTo(this.disposables);
 
-            ConfirmCommand.Subscribe(value => WeakReferenceMessenger.Default.Send(new AcceptAnswerMessage(value == TotalValue.Value))).AddTo(disposables);
+            ConfirmCommand.Subscribe(value => StrongReferenceMessenger.Default.Send(new AcceptAnswerMessage(value == TotalValue.Value))).AddTo(disposables);
         }
     }
 }
