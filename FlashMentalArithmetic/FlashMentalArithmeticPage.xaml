@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlashMentalArithmetic.FlashMentalArithmeticPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewModel="clr-namespace:PresentationModel;assembly=PresentationModel"
+             xmlns:view="clr-namespace:FlashMentalArithmetic;assembly=View"
+        >
+    <ContentPage.Resources>
+        <view:StringToIntegerConverter x:Key="StringToIntegerConverter"/>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <Label 
+            Text="{Binding CurrentValue.Value}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="{Binding TotalValue.Value}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry
+        x:Name="AnswerEntry"
+        Placeholder="答えを入力"
+        ClearButtonVisibility="WhileEditing"
+        Keyboard="Numeric"
+        />
+        <Button x:Name="ConfirmButton" Command="{Binding ConfirmCommand}" CommandParameter="{Binding Source={x:Reference AnswerEntry}, Path=Text, Converter={StaticResource StringToIntegerConverter}}"/>
+        <Button x:Name="StartFlashMentalArithmeticButton" Command="{Binding StartFlashMentalArithmeticCommand}">
+        </Button>
+        <VerticalStackLayout.BindingContext>
+            <viewModel:FlashMentalArithmeticPageModel />
+        </VerticalStackLayout.BindingContext>
+        <VerticalStackLayout.Behaviors>
+            <toolkit:EventToCommandBehavior EventName="Loaded" Command="{Binding StartFlashMentalArithmeticCommand}"/>
+        </VerticalStackLayout.Behaviors>
+    </VerticalStackLayout>
+</ContentPage>
