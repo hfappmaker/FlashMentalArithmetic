@@ -18,9 +18,11 @@ public partial class ReadyCountDownPage : ContentPage
 
     }
 
-    private async void ContentPage_Loaded(object sender, EventArgs e)
+    private void ContentPage_Loaded(object sender, EventArgs e)
     {
-        await Task.Delay(_countDownCount * millisecondsPerSecond);
-        await Navigation.PopModalAsync(false);
+        var animation = new Animation(v => {
+            ArcSegment.Point = new Point(85 * v, 110 * v);
+        }, 0, 3, Easing.Linear, () => { });
+        this.Animate("trans", animation, 16, 3000, Easing.Linear, async (v, _) => await Navigation.PopModalAsync(false), () => false);
     }
 }
