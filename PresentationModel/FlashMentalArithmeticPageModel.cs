@@ -6,11 +6,11 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
 
 namespace PresentationModel
 {
-    // All the code in this file is included in all platforms.
     public class FlashMentalArithmeticPageModel
     {
         private readonly CompositeDisposable disposables = new();
@@ -19,23 +19,24 @@ namespace PresentationModel
 
         public ReactiveCommand<int> ConfirmCommand { get; } = new ReactiveCommand<int>();
 
-        public ReadOnlyReactiveProperty<int> CurrentValue { get; }
+        public ReactiveProperty<int> CurrentValue { get; } = new ReactiveProperty<int>();
 
-        public ReadOnlyReactiveProperty<int> TotalValue { get; }
+        public ReactiveProperty<int> TotalValue { get; } = new ReactiveProperty<int>();
 
         public FlashMentalArithmeticPageModel()
         {
-            StartFlashMentalArithmeticCommand.Subscribe(MentalArithmeticService.RaiseRandomValue).AddTo(disposables);
-            CurrentValue = MentalArithmeticService.RandomValueObservable.ToReadOnlyReactiveProperty();
-            TotalValue = MentalArithmeticService.RandomValueObservable
-                .SkipUntil(MentalArithmeticService.RandomValueRaiseStartObservable)
-                .TakeUntil(MentalArithmeticService.RandomValueRaiseEndObservable)
-                .Sum()
-                .Repeat()
-                .ToReadOnlyReactiveProperty()
-                .AddTo(this.disposables);
+            StartFlashMentalArithmeticCommand.Subscribe(async _ => {
+                var values = MentalArithmeticService.GetRandomValues(5, 10);
+                TotalValue.Value = 0;
+                foreach (var value in values)
+                {
+                    CurrentValue.Value = value;
+                    TotalValue.Value += value;
+                    await Task.Delay(1000);
+                }
+            }).AddTo(disposables);
 
-            ConfirmCommand.Subscribe(value => StrongReferenceMessenger.Default.Send(new AcceptAnswerMessage(value == TotalValue.Value))).AddTo(disposables);
+            ConfirmCommand.Subscribe(value => StrongReferenceMessenger.Default.Send(new ToastMessage(value == TotalValue.Value ? ToastMessageType.Correct : ToastMessageType.Incorrect))).AddTo(disposables);
         }
     }
 }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "FlashMentalArithmetic\View.csproj", "{6A5D61D3-C6AA-4395-9D03-270632092533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View", "FlashMentalArithmetic\View.csproj", "{6A5D61D3-C6AA-4395-9D03-270632092533}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactor", "DomainLayer\Interactor.csproj", "{237F6F9F-9F2F-4D4B-BC66-8E6D884CC796}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interactor", "DomainLayer\Interactor.csproj", "{237F6F9F-9F2F-4D4B-BC66-8E6D884CC796}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationModel", "PresentationModel\PresentationModel.csproj", "{2DB7497B-ADA7-4D3D-A7AD-4ABC8C43ED08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentationModel", "PresentationModel\PresentationModel.csproj", "{2DB7497B-ADA7-4D3D-A7AD-4ABC8C43ED08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

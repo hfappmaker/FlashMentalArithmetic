@@ -73,8 +73,13 @@
 	  <Compile Update="FlashMentalArithmeticPage.xaml.cs">
 	    <DependentUpon>FlashMentalArithmeticPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="ReadyCountDownPage.xaml.cs">
+	  <Compile Update="ReadyCountDown\ReadyCountDownPage.xaml.cs">
 	    <DependentUpon>ReadyCountDownPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Strings\Resource.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Resource.resx</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -82,7 +87,7 @@
 	  <MauiXaml Update="FlashMentalArithmeticPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ReadyCountDownPage.xaml">
+	  <MauiXaml Update="ReadyCountDown\ReadyCountDownPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
@@ -91,6 +96,13 @@
 	  <None Update="FlashMentalArithmeticPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Strings\Resource.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>

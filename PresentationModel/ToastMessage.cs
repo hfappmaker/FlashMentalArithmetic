@@ -3,9 +3,9 @@ using System.Collections;
 
 namespace PresentationModel
 {
-    public class AcceptAnswerMessage : ValueChangedMessage<bool>
+    public class ToastMessage : ValueChangedMessage<ToastMessageType>
     {
-        public AcceptAnswerMessage(bool value) : base(value)
+        public ToastMessage(ToastMessageType value) : base(value)
         {
         }
     }

@@ -28,11 +28,15 @@
         <Button x:Name="ConfirmButton" Command="{Binding ConfirmCommand}" CommandParameter="{Binding Source={x:Reference AnswerEntry}, Path=Text, Converter={StaticResource StringToIntegerConverter}}"/>
         <Button x:Name="StartFlashMentalArithmeticButton" Command="{Binding StartFlashMentalArithmeticCommand}">
         </Button>
-        <VerticalStackLayout.BindingContext>
-            <viewModel:FlashMentalArithmeticPageModel />
-        </VerticalStackLayout.BindingContext>
-        <VerticalStackLayout.Behaviors>
-            <toolkit:EventToCommandBehavior EventName="Loaded" Command="{Binding StartFlashMentalArithmeticCommand}"/>
-        </VerticalStackLayout.Behaviors>
     </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <viewModel:FlashMentalArithmeticPageModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <view:ReadyCountDownBehavior/>
+        <view:AcceptAnswerBehavior/>
+        <toolkit:EventToCommandBehavior EventName="NavigatedTo" Command="{Binding StartFlashMentalArithmeticCommand}"/>
+        <!--NavigatedToでは若干Command開始が遅れてAsyncReactiveCommmandを利用しているとボタンが非活性になるタイミングが遅れる。-->
+        <!--ReadyCountDownBehaviorにカウントダウン終了直後に発生するイベントを定義すべきかも-->
+    </ContentPage.Behaviors>
 </ContentPage>

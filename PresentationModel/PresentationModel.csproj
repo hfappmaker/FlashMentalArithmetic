@@ -21,6 +21,8 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.HighPerformance" Version="8.2.2" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="EntityFramework" Version="6.2.0" />
+		<PackageReference Include="EntityFramework.ja" Version="6.2.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="ReactiveProperty" Version="9.4.1" />
@@ -28,6 +30,25 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\DomainLayer\Interactor.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Model1.tt">
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	    <LastGenOutput>Model1.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Model1.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Model1.tt</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>
