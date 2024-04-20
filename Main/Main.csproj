@@ -58,32 +58,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="System.Reactive" Version="6.0.0" />
 		<ProjectReference Include="..\CommonPresentationModel\CommonPresentationModel.csproj" />
 		<ProjectReference Include="..\View2\View2.csproj" />
+		<Compile Update="Resources\Strings\ToastMessageString.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ToastMessageString.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Resources\Strings\ToastMessageString.resx">
+		  <Generator>ResXFileCodeGenerator</Generator>
+		  <LastGenOutput>ToastMessageString.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 		<PackageReference Update="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="Resources\Strings\Resource.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Resource.resx</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Strings\Resource.ja.resx">
-	    <Generator></Generator>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Strings\Resource.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>

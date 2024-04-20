@@ -22,14 +22,14 @@ namespace Main.Resources.Strings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource {
+    internal class ToastMessageString {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resource() {
+        internal ToastMessageString() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Main.Resources.Strings {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Main.Resources.Strings.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Main.Resources.Strings.ToastMessageString", typeof(ToastMessageString).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,24 +57,6 @@ namespace Main.Resources.Strings {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Correct! に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string Correct {
-            get {
-                return ResourceManager.GetString("Correct", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Incorrect に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string Incorrect {
-            get {
-                return ResourceManager.GetString("Incorrect", resourceCulture);
             }
         }
     }
