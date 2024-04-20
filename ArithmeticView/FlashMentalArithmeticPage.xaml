@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="View2.FlashMentalArithmeticPage"
+             x:Class="ArithmeticView.FlashMentalArithmeticPage"
              xmlns:viewModel="clr-namespace:PresentationModel;assembly=PresentationModel"
              xmlns:readyCountDown="clr-namespace:CommonView.ReadyCountDown;assembly=CommonView"
              xmlns:commonView="clr-namespace:CommonView;assembly=CommonView"

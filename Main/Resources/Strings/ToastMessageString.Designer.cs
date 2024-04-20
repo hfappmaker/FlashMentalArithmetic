@@ -59,5 +59,23 @@ namespace Main.Resources.Strings {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Correct! に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Correct {
+            get {
+                return ResourceManager.GetString("Correct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Incorrect に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Incorrect {
+            get {
+                return ResourceManager.GetString("Incorrect", resourceCulture);
+            }
+        }
     }
 }

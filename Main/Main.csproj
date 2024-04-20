@@ -58,10 +58,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="System.Reactive" Version="6.0.0" />
 		<ProjectReference Include="..\CommonPresentationModel\CommonPresentationModel.csproj" />
-		<ProjectReference Include="..\View2\View2.csproj" />
+		<ProjectReference Include="..\ArithmeticView\ArithmeticView.csproj" />
 		<Compile Update="Resources\Strings\ToastMessageString.Designer.cs">
 		  <DesignTime>True</DesignTime>
 		  <AutoGen>True</AutoGen>

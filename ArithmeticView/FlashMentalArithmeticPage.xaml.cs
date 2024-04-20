@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui;
 
-namespace View2
+namespace ArithmeticView
 {
     public partial class FlashMentalArithmeticPage : ContentPage
     {
