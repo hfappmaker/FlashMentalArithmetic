@@ -19,7 +19,7 @@ namespace PresentationModel
 
         public ReactiveCommand<int> ConfirmCommand { get; } = new ReactiveCommand<int>();
 
-        public ReactiveProperty<int> CurrentValue { get; } = new ReactiveProperty<int>();
+        public ReactiveProperty<string> CurrentValue { get; } = new ReactiveProperty<string>();
 
         public ReactiveProperty<int> TotalValue { get; } = new ReactiveProperty<int>();
 
@@ -30,9 +30,11 @@ namespace PresentationModel
                 TotalValue.Value = 0;
                 foreach (var value in values)
                 {
-                    CurrentValue.Value = value;
+                    CurrentValue.Value = value.ToString();
                     TotalValue.Value += value;
-                    await Task.Delay(1000);
+                    await Task.Delay(500);
+                    CurrentValue.Value = string.Empty;
+                    await Task.Delay(500);
                 }
             }).AddTo(disposables);
 
