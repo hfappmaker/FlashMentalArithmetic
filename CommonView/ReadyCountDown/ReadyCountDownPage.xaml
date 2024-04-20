@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommonView.ReadyCountDown.ReadyCountDownPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:view="clr-namespace:CommonView.ReadyCountDown;assembly=CommonView"
+             x:Name="ReadyCountDown"
+             Loaded="ContentPage_Loaded">
+
+        <!--アニメーション関数が利用できそう？-->
+        <!--https://learn.microsoft.com/ja-jp/dotnet/maui/user-interface/animation/custom?view=net-maui-8.0-->
+    <Grid>
+        <Label 
+            Text="{Binding Source={x:Reference ReadyCountDown}, Path=Count, Mode=OneWay}"
+            x:Name="Label"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Path Stroke="Red" StrokeThickness="4">
+            <Path.Data>
+                <PathGeometry>
+                    <!--ArcSegmentは円弧、始点はPathFigureのStartPoint,終点はArcSegmentのPoint,Sizeはx,y方向の半径-->
+                    <PathFigure x:Name="PathFigure" >
+                        <ArcSegment x:Name="ArcSegment" Size="{x:Static view:ReadyCountDownPage.Size}" SweepDirection="Clockwise" >
+                        </ArcSegment>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+            <Path.Triggers>
+                <!--<EventTrigger RoutedEvent="ArcSegment.Loaded">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation From="30" To="300" Duration="00:00:3" 
+                                                 Storyboard.TargetName="myRectangle" 
+                                                 Storyboard.TargetProperty="Height">
+                                                <DoubleAnimation.EasingFunction>
+
+                                                    -->
+                <!-- You get the EasingMode property for free on your custom
+                                                             easing function.-->
+                <!--
+                                                    <CustomEase:CustomSeventhPowerEasingFunction EasingMode="EaseIn"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>-->
+            </Path.Triggers>
+        </Path>
+    </Grid>
+</ContentPage>

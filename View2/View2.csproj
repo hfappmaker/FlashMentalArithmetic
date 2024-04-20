@@ -19,12 +19,26 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ReactiveProperty" Version="9.5.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\CommonPresentationModel\CommonPresentationModel.csproj" />
-	  <ProjectReference Include="..\Interactor\Interactor.csproj" />
+	  <Compile Update="FlashMentalArithmeticPage.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="FlashMentalArithmeticPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CommonView\CommonView.csproj" />
+		<ProjectReference Include="..\PresentationModel\PresentationModel.csproj" />
 	</ItemGroup>
 
 </Project>

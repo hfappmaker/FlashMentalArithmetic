@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
@@ -17,14 +17,5 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="ReactiveProperty" Version="9.5.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\CommonPresentationModel\CommonPresentationModel.csproj" />
-	  <ProjectReference Include="..\Interactor\Interactor.csproj" />
-	</ItemGroup>
 
 </Project>

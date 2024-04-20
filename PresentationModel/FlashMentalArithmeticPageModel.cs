@@ -1,13 +1,10 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-using DomainLayer.MentalArithmetic;
+﻿using CommonPresentationModel;
+using CommunityToolkit.Mvvm.Messaging;
+using Interactor;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
-using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Reactive.Threading.Tasks;
-using System.Threading.Tasks;
 
 namespace PresentationModel
 {
