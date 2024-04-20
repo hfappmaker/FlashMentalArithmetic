@@ -16,10 +16,10 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         
-    <Label 
+    <!--<Label 
             Text="{Binding TotalValue.Value}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" />-->
     <!--EntryのKeyboardはAndroid,iOSで表示するキーボードの事。WindowsPCではあまり関係ない-->
     
         <Entry
